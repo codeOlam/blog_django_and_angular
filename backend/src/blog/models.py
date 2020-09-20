@@ -28,6 +28,10 @@ class Post(models.Model):
 	timestamp	= models.DateTimeField(auto_now_add=True)
 
 
+	def __str__(self):
+		return self.title
+
+
 	class Meta:
 		verbose_name = 'Blog Post'
 		verbose_name_plural = 'Blog Posts'
