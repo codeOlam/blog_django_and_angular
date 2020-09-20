@@ -1,17 +1,15 @@
 from django.shortcuts import render
-from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from rest_framework import permissions
 
-from .serializers import UserSerializer
+from .models import Post
+from .serializers import PostSerializer
 # Create your views here.
 
 
 
-class UserViewSet(viewsets.ModelViewSet):
+class PostViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows users to be viewed or edited.
+    API endpoint that allows blog posts to be viewed or edited.
     """
-    queryset = User.objects.all().order_by('-date_joined')
-    serializer_class = UserSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
